@@ -27,7 +27,7 @@ public class CartController extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         
         try {
-            // 1. Lấy thông tin sản phẩm và số lượng từ form
+            // 1. Lấy thông tin sản phẩm và  số lượng từ form
             int productId = Integer.parseInt(req.getParameter("productId"));
             int quantity = Integer.parseInt(req.getParameter("quantity"));
             
