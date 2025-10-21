@@ -109,8 +109,7 @@ public class ProductDaoImpl implements ProductDao {
         try {
         	conn = DBConnection.getConnection();
 			ps = conn.prepareStatement(sql);
-       // Connection con = new DBConnection().getConnection();
-        //PreparedStatement ps = con.prepareStatement(sql);
+     
 			System.out.println("Executing SQL: " + sql);
         ResultSet rs = ps.executeQuery();
         	
