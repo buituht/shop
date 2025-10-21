@@ -59,14 +59,14 @@ public class OrderServiceImpl implements OrderService {
                 	 String subject = "[XÁC NHẬN] Đơn hàng #" + orderId + " của bạn đã được đặt thành công!";
                      String htmlContent = EmailTemplate.buildOrderConfirmationEmail(order, cartItems);
                      
-                     // Gửi email, không cần dừng giao dịch nếu email thất bại (thường là logic không nghiêm ngặt)
+                     // Gửi email, không cần dừng giao dịch nếu email thất bại 
                      EmailUtil.sendEmail(order.getEmail(), subject, htmlContent);
                    
                      
                     return true;
                 } else {
                     // Nếu lưu details thất bại, cần hủy Order Header vừa tạo
-                    // (Trong DAO thực tế, bạn cần gọi rollback() và xóa Order Header)
+                    // (Trong DAO thực tế, cần gọi rollback() và xóa Order Header)
                     orderDao.deleteOrder(orderId); 
                     return false;
                 }
@@ -74,7 +74,7 @@ public class OrderServiceImpl implements OrderService {
         } catch (Exception e) {
             e.printStackTrace();
             // Nếu có lỗi, hủy giao dịch
-            // (Trong DAO thực tế, bạn cần gọi rollback())
+            // (Trong DAO thực tế, cần gọi rollback())
             return false;
         }
         return false;
