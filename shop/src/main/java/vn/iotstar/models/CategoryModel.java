@@ -2,10 +2,10 @@ package vn.iotstar.models;
 
 public class CategoryModel {
     
-    private int catId;     // Khớp với cột 'catId'
-    private String cateName; // Khớp với cột 'CateName'
-    private String image;    // Khớp với cột 'Image'
-    private int status;    // Khớp với cột 'status'
+    private int catId;     
+    private String cateName; 
+    private String image;    
+    private int status;    
     
     // Getters and Setters
     public int getCatId() {
