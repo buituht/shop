@@ -12,7 +12,6 @@ public class OrderDetailModel {
     // Constructor (Rỗng)
     public OrderDetailModel() {}
 
-    // Getters and Setters (Bạn hãy thêm đầy đủ các getter/setter còn thiếu)
     
     public int getDetailId() {
         return detailId;
