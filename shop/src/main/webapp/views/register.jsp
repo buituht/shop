@@ -109,22 +109,22 @@ button[type="submit"] {
     </div>
 
     <div class="form-group">
-        <label for="fullname">Full Name:</label>
+        <label for="fullname">Họ và Tên:</label>
         <input type="text" id="fullname" name="fullname" required>
     </div>
 
     <div class="form-group">
-        <label for="password">Password:</label>
+        <label for="password">Mật khẩu:</label>
         <input type="password" id="password" name="password" required>
     </div>
 
 
     <div class="form-group">
-	    <label for="roleid">Role:</label>
+	    <label for="roleid">Phân quyền:</label>
 	    <select id="roleid" name="roleid" required>
-	        <option value="">Select a role</option>
+	        <option value="">Chọn phân quyền</option>
 	        <option value="1">Admin</option>
-	        <option value="2">Editor</option>
+	        <option value="2">Manager</option>
 	        <option value="3">User</option>
 	        <option value="4">Guest</option>
 	    </select>
