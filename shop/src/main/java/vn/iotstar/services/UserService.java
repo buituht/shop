@@ -27,7 +27,7 @@ public interface UserService {
 
 	boolean register(UserDao user);
 
-	//boolean register(String username, String password, String email, String fullname, String phone);
+
 	boolean register(String email, String username,String fullname, String password,String avatar,int roleid, String phone);
 	
 
