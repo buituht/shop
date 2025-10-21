@@ -13,4 +13,8 @@ public interface OrderService {
      * @return true nếu đặt hàng thành công, ngược lại là false.
      */
     boolean placeOrder(OrderModel order, List<CartItemModel> cartItems);
+
+	int countAllOrders();
+
+	List<OrderModel> findAllOrdersPaging(int offset, int itemsPerPage);
 }
