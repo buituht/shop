@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import vn.iotstar.daos.OrderDao;
 import vn.iotstar.jdbc.DBConnection;
 import vn.iotstar.models.OrderModel;
+import vn.iotstar.models.ProductModel;
 
 public class OrderDaoImpl implements OrderDao {
     
@@ -81,4 +83,80 @@ public class OrderDaoImpl implements OrderDao {
             // Đóng kết nối
         }
     }
+    
+    
+    @Override
+    public List<OrderModel> findAllOrdersPaging(int offset, int limit) {
+    	String sql = "SELECT o.*, u.userName, u.id "
+    			+ "FROM orders o "
+    			+ "LEFT JOIN users u ON o.user_id = u.id " + 
+                "ORDER BY o.order_id DESC " +
+                "LIMIT ? OFFSET ?";
+    	System.out.println("Truy van danh sach Order: " + sql);
+List<OrderModel> orders = new ArrayList<>();
+        
+        try {
+            conn = DBConnection.getConnection();
+            ps = conn.prepareStatement(sql);
+            
+            // Đã sửa: Gán giá trị cho LIMIT (?) và OFFSET (?)
+            ps.setInt(1, limit);
+            ps.setInt(2, offset);
+            
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                OrderModel order = new OrderModel();
+                // 1. Mapping các trường cơ bản
+                order.setOrderId(rs.getInt("order_id"));
+                order.setUserId(rs.getInt("id"));
+                order.setFullName(rs.getString("full_name"));
+                order.setEmail(rs.getString("email"));
+                order.setPhone(rs.getString("phone"));
+                order.setShippingAddress(rs.getString("shipping_address"));
+              
+                order.setPaymentMethod(rs.getString("payment_method"));
+
+                order.setOrderDate(rs.getTimestamp("order_date"));
+                
+                // 2. Mapping trường JOIN (user_id)
+                order.setUserId(rs.getInt("id"));
+                
+                
+                
+                orders.add(order);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orders;
+    }
+
+    @Override
+    public int countAllOrders() {
+
+
+         String sql = "SELECT COUNT(order_id) FROM orders";
+         int count = 0;
+         
+         try {
+             conn = DBConnection.getConnection();
+             ps = conn.prepareStatement(sql);
+             rs = ps.executeQuery();
+             
+             if (rs.next()) {
+                 count = rs.getInt(1); // Lấy giá trị của cột COUNT
+             }
+         } catch (Exception e) {
+             e.printStackTrace();
+         } finally {
+             // Đóng
+             // DBConnection.close(rs, ps, conn); 
+         }
+         
+       
+         return count; 
+    }
+   
+    
 }
