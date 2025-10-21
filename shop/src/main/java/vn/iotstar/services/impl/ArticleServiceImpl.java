@@ -35,9 +35,9 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void saveOrUpdate(ArticleModel article) {
-        // Bổ sung logic nghiệp vụ: Xử lý SLUG, kiểm tra dữ liệu, v.v.
+        // 
         
-        // Ví dụ: Đảm bảo tiêu đề không rỗng
+        // 
         if (article.getTitle() == null || article.getTitle().trim().isEmpty()) {
             throw new IllegalArgumentException("Title cannot be empty.");
         }
@@ -56,13 +56,13 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void removeArticle(int articleId) {
-        // Bổ sung logic nghiệp vụ: Kiểm tra quyền xóa, xóa các file liên quan
+        //
         articleDao.delete(articleId);
     }
 
     @Override
     public ArticleModel getArticleById(int articleId) {
-        // Bổ sung logic: Kiểm tra ID hợp lệ
+        // Kiểm tra ID hợp lệ
         if (articleId <= 0) {
             return null;
         }
