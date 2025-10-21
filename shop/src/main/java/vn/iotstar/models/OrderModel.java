@@ -20,10 +20,10 @@ public class OrderModel {
     private Date orderDate;
     private int status; // Trạng thái đơn hàng
     
-    // Chi tiết đơn hàng (Rất quan trọng cho việc hiển thị và lưu DB)
+   
     private List<OrderDetailModel> orderDetails; 
 
-    // Constructor (Rỗng)
+    
     public OrderModel() {}
     
     // Getters and Setters
