@@ -6,7 +6,7 @@ public class CartItemModel {
     private String productName;
     private double price;
     private int quantity;
-    private String image; // Để hiển thị trong giỏ hàng
+    private String image; 
     
     // Constructors (Constructor rỗng và Constructor đầy đủ)
     public CartItemModel() {}
@@ -23,7 +23,7 @@ public class CartItemModel {
     public int getProductId() {
         return productId;
     }
-    // ... (Thêm các getter/setter còn lại)
+   
     public void setProductId(int productId) {
         this.productId = productId;
     }
