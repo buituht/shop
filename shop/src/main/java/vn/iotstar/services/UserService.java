@@ -1,5 +1,7 @@
 package vn.iotstar.services;
 
+import java.util.List;
+
 import org.apache.catalina.User;
 
 import vn.iotstar.daos.UserDao;
@@ -29,7 +31,22 @@ public interface UserService {
 	boolean register(String email, String username,String fullname, String password,String avatar,int roleid, String phone);
 	
 
-	
+ // --- Quản lý User (CRUD) ---
+    
+    /** Lấy tất cả người dùng (Dùng cho Admin List) */
+    List<UserModel> findAll();
+    
+    /** Tìm người dùng theo ID */
+    UserModel findById(int id);
+    
+    /** Thêm người dùng mới */
+    void insert(UserModel user); 
+    
+    /** Cập nhật thông tin người dùng */
+    void update(UserModel user);
+
+    /** Xóa người dùng */
+    void delete(int id);
 
 	
 
