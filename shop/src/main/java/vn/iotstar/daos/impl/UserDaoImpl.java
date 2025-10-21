@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDao{
 		
 		String sql = "SELECT * FROM users WHERE userName = ? ";
 		try {
-		//conn = DBConnection.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+
 		Connection conn = DBConnection.getConnection();
 		ps = conn.prepareStatement(sql);
 		ps.setString(1, username);
@@ -112,7 +112,7 @@ Connection conn = DBConnection.getConnection();
 		String query = "SELECT COUNT(*) FROM users WHERE email = ?";
 		try {
 		
-			//conn = DBConnection.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+			
 			 	Connection conn = DBConnection.getConnection();
 				ps = conn.prepareStatement(query);
 				ps.setString(1, email);
