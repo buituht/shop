@@ -44,8 +44,8 @@ public class ArticleAddController extends HttpServlet {
         article.setContent(content);
         article.setSummary(summary);
         article.setStatus(status);
-        article.setUserId(1); // Giả sử User ID mặc định
-        article.setCategoryId(1); // Giả sử Category ID mặc định
+        article.setUserId(1); 
+        article.setCategoryId(1); 
         
         // 3. Gọi Service để lưu
         articleService.saveOrUpdate(article);
