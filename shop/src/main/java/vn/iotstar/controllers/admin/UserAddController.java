@@ -85,7 +85,7 @@ public class UserAddController extends HttpServlet {
             newUser.setAvatar(avatar != null ? avatar : "default.jpg");
 
             // NGHIỆP VỤ QUAN TRỌNG: Mã hóa mật khẩu trước khi lưu
-            // Chúng ta gọi Service, và Service sẽ đảm nhận việc Hash mật khẩu
+            // gọi Service, và Service sẽ đảm nhận việc Hash mật khẩu
             newUser.setPassWord(password); 
             
             // 4. Gọi Service để chèn vào DB
