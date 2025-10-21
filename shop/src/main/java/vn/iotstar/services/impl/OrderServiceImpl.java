@@ -79,4 +79,14 @@ public class OrderServiceImpl implements OrderService {
         }
         return false;
     }
+    
+    @Override
+    public List<OrderModel> findAllOrdersPaging(int offset, int limit) {
+        return orderDao.findAllOrdersPaging(offset, limit);
+    }
+
+    @Override
+    public int countAllOrders() {
+        return orderDao.countAllOrders();
+    }
 }
