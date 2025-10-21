@@ -101,39 +101,39 @@ public class ArticleDaoImpl implements ArticleDao {
     
     @Override
     public void insert(ArticleModel article) {
-        // Triển khai logic INSERT INTO articles
+       
     }
     
     @Override
     public void update(ArticleModel article) {
-        // Triển khai logic UPDATE articles
+        
     }
     
     @Override
     public void delete(int articleId) {
-        // Triển khai logic DELETE FROM articles
+       
     }
     
     @Override
     public ArticleModel findById(int articleId) {
-        // Triển khai logic SELECT * FROM articles WHERE article_id = ?
+       
         return null;
     }
     
     @Override
     public List<ArticleModel> findPublishedPaging(int offset, int limit) {
-        // Triển khai logic SELECT ... WHERE status = 'Published' LIMIT ? OFFSET ?
+  
         return null;
     }
     
     @Override
     public ArticleModel findBySlug(String slug) {
-        // Triển khai logic SELECT * FROM articles WHERE slug = ?
+      
         return null;
     }
     
     @Override
     public void incrementViews(int articleId) {
-        // Triển khai logic UPDATE articles SET views = views + 1 WHERE article_id = ?
+        
     }
 }
