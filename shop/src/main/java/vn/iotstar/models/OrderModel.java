@@ -103,9 +103,7 @@ public class OrderModel {
         return status;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
+
 
     public List<OrderDetailModel> getOrderDetails() {
         return orderDetails;
@@ -114,4 +112,9 @@ public class OrderModel {
     public void setOrderDetails(List<OrderDetailModel> orderDetails) {
         this.orderDetails = orderDetails;
     }
+
+	public void setStatus(int i) {
+		// TODO Auto-generated method stub
+		
+	}
 }
