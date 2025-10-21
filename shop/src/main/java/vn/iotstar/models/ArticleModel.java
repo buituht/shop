@@ -4,15 +4,15 @@ import java.sql.Timestamp;
 
 public class ArticleModel {
     private int articleId;
-    private int categoryId;       // ID danh mục bài viết
-    private Integer userId;       // ID người tạo (có thể là admin/editor)
+    private int categoryId;       
+    private Integer userId;       
     private String title;
-    private String slug;          // Đường dẫn thân thiện
-    private String summary;       // Tóm tắt ngắn
+    private String slug;          
+    private String summary;       
     private String content;
-    private String image;         // Đường dẫn ảnh thumbnail
-    private int views;            // Số lượt xem
-    private String status;        // Trạng thái: Draft, Published, Hidden
+    private String image;         
+    private int views;            
+    private String status;        
     private Timestamp createdAt;
     private Timestamp updatedAt;
     
