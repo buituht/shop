@@ -1,5 +1,7 @@
 package vn.iotstar.daos;
 
+import java.util.List;
+
 import vn.iotstar.models.OrderModel;
 
 public interface OrderDao {
@@ -16,4 +18,12 @@ public interface OrderDao {
      * @param orderId ID của đơn hàng cần xóa.
      */
     void deleteOrder(int orderId);
+    
+    List<OrderModel> findAllOrdersPaging(int offset, int limit);
+    
+    /**
+     * Đếm tổng số đơn hàng
+     * @return Tổng số đơn hàng
+     */
+    int countAllOrders();
 }
