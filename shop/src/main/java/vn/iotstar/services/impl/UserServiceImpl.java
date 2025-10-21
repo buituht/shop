@@ -1,5 +1,7 @@
 package vn.iotstar.services.impl;
 
+import java.util.List;
+
 import vn.iotstar.daos.UserDao;
 import vn.iotstar.daos.impl.UserDaoImpl;
 import vn.iotstar.models.UserModel;
@@ -37,12 +39,42 @@ public class UserServiceImpl implements UserService{
 	        
 		}
 
-	@Override
-	public void insert(UserDao user) {
-		// TODO Auto-generated method stub
-		
-		
-	}
+
+	
+ // --- Quản lý User (CRUD) ---
+    
+    @Override
+    public List<UserModel> findAll() {
+        return userDao.findAll();
+    }
+
+    @Override
+    public UserModel findById(int id) {
+        return userDao.findById(id);
+    }
+
+    @Override
+    public void insert(UserModel user) {
+        // NGHIỆP VỤ: Hash mật khẩu trước khi lưu
+        String hashedPassword = user.getPassWord(); 
+        user.setPassWord(hashedPassword);
+        
+        userDao.insert(user);
+    }
+
+    @Override
+    public void update(UserModel user) {
+        // Lưu ý: Phương thức update này không xử lý mật khẩu.
+        // Cần phương thức riêng để đổi mật khẩu.
+        userDao.update(user);
+    }
+
+    @Override
+    public void delete(int id) {
+        userDao.delete(id);
+    }
+    
+    // --- Nghiệp vụ Đăng ký & Đăng nhập ---
 
 	
 
@@ -102,6 +134,12 @@ public class UserServiceImpl implements UserService{
 	public boolean register(UserDao user) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void insert(UserDao user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
